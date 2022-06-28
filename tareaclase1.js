@@ -7,17 +7,19 @@ console.log(genUsuario());
 
 asyncForLoop(
   100,
-  (idx, next) => {
+  /* (idx, next) => {
     let obj = genUsuario();
-    let usuJson = JSON.stringify(genUsuario());
     let pathArch = "./var/log/" + obj.id + ".json";
-    fs.writeFile(pathArch, usuJson, "utf8", (err) => {
+    fs.readFile(pathArch, n, "utf8", (err) => {
       if (err) {
         console.log(err);
         return;
       }
       next();
     });
+  }, */
+  (idx, next) => {
+    fs.readFile("./var/log,");
   },
   () => {
     console.log("finalizo el proceso");
