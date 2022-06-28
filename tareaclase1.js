@@ -1,27 +1,38 @@
-const genUsuario = require("./lib/generarUsuario.js");
-const asyncForLoop = require("./lib/asyncForLoop.js");
-const _ = require("underscore");
 const fs = require("fs");
+const { first } = require("underscore");
+const asyncForLoop = require("./lib/asyncForLoop.js");
 
-console.log(genUsuario());
+let path = "./var/log/";
 
-asyncForLoop(
-  100,
-  /* (idx, next) => {
-    let obj = genUsuario();
-    let pathArch = "./var/log/" + obj.id + ".json";
-    fs.readFile(pathArch, n, "utf8", (err) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      next();
-    });
-  }, */
-  (idx, next) => {
-    fs.readFile("./var/log,");
-  },
-  () => {
-    console.log("finalizo el proceso");
+fs.readdir(path, (err, arrArchivos) => {
+  if (err) {
+    console.log(err);
+    return;
   }
-);
+
+  asyncForLoop(
+    arrArchivos.length,
+    (idx, next) => {
+      let archivo = arrArchivos[idx];
+      let pathCompleto = [path, archivo].join("");
+      fs.readFile(pathCompleto, "utf8", (err, contenido) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        setTimeout(() => {
+          console.log(contenido);
+          next();
+        }, 200);
+      });
+    },
+    () => {
+      console.log("termino el proceso de borrado");
+    }
+  );
+});
+
+/* for (let archivos of arrArchivos) {
+        let pathCompleto = [path, archivos].join("");
+        fs.readFile(pathCompleto, "utf8", (err, contenido) => {});
+      } */
