@@ -9,6 +9,7 @@ function leerCarpeta() {
       console.log(err);
       return;
     }
+    recorrerYmostrar(arrArchivos);
   });
 }
 
@@ -66,3 +67,5 @@ function recorrerYborrar(arrArchivos) {
         let pathCompleto = [path, archivos].join("");
         fs.readFile(pathCompleto, "utf8", (err, contenido) => {});
       } */
+
+leerCarpeta();
