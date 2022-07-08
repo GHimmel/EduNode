@@ -1,0 +1,27 @@
+{
+  "name": "cursonode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "callback.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GHimmel/EduNode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GHimmel/EduNode/issues"
+  },
+  "homepage": "https://github.com/GHimmel/EduNode#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "faker": "^5.5.3",
+    "mongodb": "^4.7.0",
+    "mysql2": "^2.3.3",
+    "underscore": "^1.13.4",
+    "uuid": "^8.3.2"
+  }
+}
